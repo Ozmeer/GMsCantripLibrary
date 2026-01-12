@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GMs Macro Lib, README</title>
+<style>
+  :root{
+    --bg:#0f172a;
+    --panel:#111827;
+    --card:#0b1220;
+    --text:#e5e7eb;
+    --muted:#9ca3af;
+    --accent:#22d3ee;
+    --accent-2:#60a5fa;
+    --ok:#10b981;
+    --warn:#f59e0b;
+    --danger:#ef4444;
+    --code:#0a0f1c;
+    --border:#1f2937;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:linear-gradient(180deg,var(--bg),#060a14);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",sans-serif;}
+  .wrap{max-width:980px;margin:40px auto;padding:0 20px 60px;}
+  header{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+  header .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 6px 18px rgba(96,165,250,.35), inset 0 0 0 2px rgba(255,255,255,.15)}
+  h1{font-size:30px;line-height:1.15;margin:0}
+  .sub{color:var(--muted);font-size:14px;margin-top:4px}
+  .card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.02));border:1px solid var(--border);border-radius:18px;padding:18px 20px;margin:16px 0;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+  h2{font-size:22px;margin:18px 0 8px}
+  h3{font-size:18px;margin:16px 0 8px}
+  ol{padding-left:22px;margin:10px 0}
+  li{margin:8px 0}
+  .kbd{display:inline-block;border:1px solid var(--border);border-bottom-width:3px;border-radius:8px;padding:2px 8px;background:linear-gradient(180deg,#111827,#0e1627);font-weight:600}
+  .code{display:block;background:var(--code);border:1px solid var(--border);border-radius:14px;padding:14px 16px;margin:12px 0;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;white-space:pre;overflow:auto}
+  .inline{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;background:rgba(255,255,255,.06);padding:.1em .35em;border-radius:.4em;border:1px solid var(--border)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:8px}
+  .tip{border-left:4px solid var(--ok);padding-left:12px}
+  .warn{border-left:4px solid var(--warn);padding-left:12px}
+  .danger{border-left:4px solid var(--danger);padding-left:12px}
+  a{color:var(--accent)}
+  .footer{color:var(--muted);font-size:13px;margin-top:28px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <h1>Center Broadcast</h1>
+        <div class="sub">Кнопка ГМа для центрирования игроков <em>без изменения зума</em></div>
+      </div>
+    </header>
+
+    <div class="card">
+      <h2>Что делает кнопка</h2>
+      <p>
+        Кнопка запускает макрос <span class="inline">center_broadcast</span> из аддона
+        <span class="inline">GMs Macro Lib</span>. Аддон берёт текущий центр карты ГМа и рассылает его клиентам и у игроков карта центрируется в той же точке точке, а масштаб остаётся своим.
+      </p>
+      <div class="warn card">
+        <strong>Важно:</strong> игрок должен быть на той же карте, и карта должна быть видима игрокам.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Быстрый старт</h2>
+      <ol>
+        <li>Убедитесь, что аддон <span class="inline">GMs Macro Lib</span> импортирован: <em>Файл → Встраиваемые библиотеки...</em>.</li>
+        <li>Откройте панель <strong>Кампания</strong> и создайте новую кнопку, нажмите ПКМ в панели и выберите <strong>Новый макрос</strong>.</li>
+        <li>В поле редактора вставьте скрипт запуска:</li>
+      </ol>
+      <pre class="code">[h: link = macroLinkText("center_broadcast@lib:net.kiktaaa.gmsmacrolib", "self")]
+[h: execLink(link, 0,"self")]</pre>
+      <ol start="4">
+        <li>На вкладке <strong>Настройки</strong> задайте название (например, <em>Center player map</em>) и нажмите <strong>Применить</strong>.</li>
+      </ol>
+      <div class="tip card">
+		<strong>ОБЯЗАТЕЛЬНО:</strong>
+		<ul>
+			<li>Должна стоять галочка <strong>Автовыполнение</strong>, иначе макрос на клиенте игрока не сработает.</li>
+			<li>На вкладке <strong>Доп. опции</strong> снять галочку <strong>Разрешить игрокам редактировать макрос</strong>.</li>
+			<li><strong>Сохраните кампанию</strong>, библиотека макросов применяется для открытой в данный момент кампании и встраивается в неё.</li>
+		</ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Привязка к клавише</h2>
+      <ol>
+        <li>Откройте редактор созданной кнопки (правый клик → <em>Редактировать</em>).</li>
+        <li>В поле <strong>Горячая клавиша</strong> назначьте, например, <span class="kbd">F5</span> или комбинацию с модификатором (<span class="kbd">Ctrl</span> + <span class="kbd">F5</span>).</li>
+        <li>Примените изменения. Теперь запускать центрирование можно клавишей.</li>
+      </ol>
+      <div class="warn card">
+        <strong>Учтите:</strong> горячая клавиша срабатывает, когда окно MapTool активно.
+      </div>
+    </div>
+
+    <p class="footer">© Center Broadcast helper — данная памятка предназначена для быстрого развертывания кнопки ГМа.</p>
+  </div>
+</body>
+</html>

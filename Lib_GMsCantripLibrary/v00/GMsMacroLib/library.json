@@ -1,0 +1,11 @@
+{
+  "name": "GMs macros library",
+  "namespace": "net.kiktaaa.gmsmacrolib",
+  "version": "0.0.1",
+  "description": "Hear ye, hear ye! This shall be the collection of usefulness in my humble glory, mhm...",
+  "authors": [ "Me" ],
+  "license": "MIT",
+  "allowsUriAccess": true,
+  "readMeFile": "library/public/README.html",
+  "homepage": ""
+}

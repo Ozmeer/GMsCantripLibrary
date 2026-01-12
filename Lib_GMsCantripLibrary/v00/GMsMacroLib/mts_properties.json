@@ -1,0 +1,10 @@
+{ 
+  "properties": [ 
+    {
+      "filename": "public/center_apply.mts",
+      "autoExecute": true,
+      "showLinkInChat": true,
+      "description": "Auto executable center to macro"
+    }
+  ]
+}

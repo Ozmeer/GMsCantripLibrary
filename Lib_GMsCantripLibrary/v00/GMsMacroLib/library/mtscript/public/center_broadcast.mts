@@ -1,0 +1,6 @@
+[h: vc = getViewCenter(0, "json")]
+[h: x = json.get(vc, "centerX")]
+[h: y = json.get(vc, "centerY")]
+[h: payload = json.set("", "x", x, "y", y)]
+[h: link = macroLinkText("center_apply@lib:net.kiktaaa.gmsmacrolib", "all", payload)]
+[h: execLink(link, 0,"not-gm")]
