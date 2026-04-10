@@ -8,9 +8,13 @@
 ### Lib:GMsCantripLibrary
 - Центрирование карты игроков без изменения масштаба
 - Применяет установленный масштаб для карты игроков
+- Приближение/отдаление зума для карты игроков
 
 ### Lib:Door
 - Интерактивные двери с поддержкой VBL/MBL
+
+### Lib:Handout
+- Токен для отображения изображений или раздаточных материалов на экране игроков
 
 ---
 ## ENG. Short description:
@@ -21,3 +25,6 @@
 
 ### Lib:Door
 - Interactive doors supporting VBL/MBL
+
+### Lib:Handout
+- Token that allows to show handout or art on players screen
